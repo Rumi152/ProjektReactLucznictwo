@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,7 +22,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer></Footer>
+        </div>
+
         <ScrollRestoration />
         <Scripts />
       </body>
